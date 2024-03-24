@@ -1,8 +1,21 @@
-import jobs from "../data/jobs.json";
+import { useEffect } from "react";
 import location from "../assets/icons/Location.png";
 import money from "../assets/icons/money.png";
+import { useLoaderData } from "react-router-dom";
+import { getJobApplication } from "../utils/localStorage";
 
 const AppliedJob = () => {
+  const jobs = useLoaderData();
+
+  useEffect(() => {
+    const getStoredJobs = getJobApplication();
+
+    if (jobs.length > 0) {
+      const jobsApplied = jobs.filter((job) => getStoredJobs.includes(job.id));
+      console.log(jobsApplied);
+    }
+  }, []);
+
   return (
     <div className='w-[80%] mx-auto'>
       <h2 className='text-4xl font-bold text-center my-5'>Applied Job</h2>

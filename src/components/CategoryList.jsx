@@ -1,4 +1,3 @@
-import account from "../assets/icons/accounts.png";
 import categories from "../data/categories.json";
 
 const CategoryList = () => {
