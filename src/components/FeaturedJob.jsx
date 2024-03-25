@@ -14,7 +14,7 @@ const FeaturedJob = () => {
   }, []);
 
   return (
-    <div>
+    <div id='gotofeatured'>
       <h2 className='text-4xl font-bold text-center mb-5'>Featured Jobs</h2>
       <p className='text-gray-500 text-center'>
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique in

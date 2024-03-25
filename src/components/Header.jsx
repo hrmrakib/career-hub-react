@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import Button from "./Button";
+import { HashLink } from "react-router-hash-link";
 
 const Header = () => {
   const links = (
@@ -48,13 +48,14 @@ const Header = () => {
       <div className='navbar-center hidden lg:flex'>
         <ul className='menu menu-horizontal px-1'>{links}</ul>
       </div>
+
       <div className='navbar-end'>
-        <Link
+        <HashLink
+          to='#gotofeatured'
           className='bg-gradient-to-r from-cyan-400 to-blue-600 text-white px-6 py-2 rounded-lg'
-          to='#apply'
         >
           Start Applying
-        </Link>
+        </HashLink>
       </div>
     </div>
   );
