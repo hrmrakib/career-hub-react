@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import location from "../assets/icons/Location.png";
 import money from "../assets/icons/money.png";
 import { useLoaderData } from "react-router-dom";
@@ -6,31 +6,74 @@ import { getJobApplication } from "../utils/localStorage";
 
 const AppliedJob = () => {
   const jobs = useLoaderData();
+  const [appliedJobs, setAppliedJobs] = useState([]);
+  const [displayJobs, setDisplayJobs] = useState([]);
 
   useEffect(() => {
     const getStoredJobs = getJobApplication();
 
     if (jobs.length > 0) {
-      const jobsApplied = jobs.filter((job) => getStoredJobs.includes(job.id));
-      console.log(jobsApplied);
+      // const jobsApplied = jobs.filter((job) => getStoredJobs.includes(job.id));
+
+      const jobsApplied = [];
+      for (const id of getStoredJobs) {
+        const job = jobs.find((job) => job.id === id);
+        if (job) {
+          jobsApplied.push(job);
+        }
+      }
+      setDisplayJobs(jobsApplied);
+      setAppliedJobs(jobsApplied);
+      // console.log(jobs, jobsApplied);
     }
-  }, []);
+  }, [jobs]);
+
+  const handleFilter = (id) => {
+    if (id === "All") {
+      const allJobs = appliedJobs.filter((job) => job.remote_or_onsite === id);
+      setDisplayJobs(allJobs);
+    } else if (id === "Remote") {
+      const allJobs = appliedJobs.filter((job) => job.remote_or_onsite === id);
+      setDisplayJobs(allJobs);
+    } else if (id === "Onsite") {
+      const allJobs = appliedJobs.filter((job) => job.remote_or_onsite === id);
+      setDisplayJobs(allJobs);
+    }
+  };
 
   return (
     <div className='w-[80%] mx-auto'>
-      <h2 className='text-4xl font-bold text-center my-5'>Applied Job</h2>
+      <h2 className='text-4xl font-bold text-center my-5' id='apply'>
+        Applied Job
+      </h2>
 
-      <div className='flex bg-gray-100 rounded-md p-2 ml-auto w-max'>
-        <select className='' name='' id=''>
-          <option value='Filter By'>Name</option>
-          <option value='Filter By'>Area</option>
-          <option value='Filter By'>Type</option>
-        </select>
+      <div className='dropdown flex justify-end'>
+        <div
+          tabIndex={0}
+          role='button'
+          className='btn m-1 bg-blue-500 text-white'
+        >
+          All
+        </div>
+        <ul
+          tabIndex={0}
+          className='dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52'
+        >
+          <li onClick={() => handleFilter("All")}>
+            <a>All</a>
+          </li>
+          <li onClick={() => handleFilter("Remote")}>
+            <a>Remote</a>
+          </li>
+          <li onClick={() => handleFilter("Onsite")}>
+            <a>Onsite</a>
+          </li>
+        </ul>
       </div>
 
       <section className=''>
         <div className='my-20 grid grid-cols-1 gap-4 lg:gap-10'>
-          {jobs.map((job) => (
+          {displayJobs.map((job) => (
             <div
               key={job.id}
               className='flex border px-5 py-1 rounded-xl items-center gap-8'

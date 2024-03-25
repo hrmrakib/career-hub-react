@@ -3,16 +3,18 @@ import jobTitle from "../assets/icons/calendar.png";
 import phonePng from "../assets/icons/phone.png";
 import emailPng from "../assets/icons/email.png";
 import locationPng from "../assets/icons/location2.png";
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { saveJobApplication } from "../utils/localStorage";
 
 const JobDetail = () => {
+  const navigate = useNavigate();
   const jobs = useLoaderData();
   let { id } = useParams();
   id = parseInt(id);
   const job = jobs.find((job) => job.id === id);
+
   const {
     job_title,
     company_name,
@@ -28,8 +30,7 @@ const JobDetail = () => {
   const handleApply = () => {
     saveJobApplication(id);
     toast("You have applied successfully!");
-
-    setTimeout(() => {}, 1000);
+    navigate("/applied");
   };
 
   return (
@@ -98,12 +99,14 @@ const JobDetail = () => {
             </div>
           </div>
 
-          <button
-            onClick={handleApply}
-            className='mt-4 w-full bg-gradient-to-r from-cyan-400 to-blue-600 text-white px-6 py-2 rounded-lg'
-          >
-            Apply Now
-          </button>
+          <div>
+            <button
+              onClick={handleApply}
+              className='mt-4 w-full bg-gradient-to-r from-cyan-400 to-blue-600 text-white px-6 py-2 rounded-lg'
+            >
+              Apply Now
+            </button>
+          </div>
         </div>
       </div>
     </div>

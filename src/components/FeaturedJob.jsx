@@ -15,7 +15,6 @@ const FeaturedJob = () => {
 
   return (
     <div>
-      {console.log(jobLength)}
       <h2 className='text-4xl font-bold text-center mb-5'>Featured Jobs</h2>
       <p className='text-gray-500 text-center'>
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique in
@@ -60,9 +59,11 @@ const FeaturedJob = () => {
         ))}
       </section>
 
-      <div className={`text-center ${jobLength === jobs.length && "hidden"}`}>
+      <div
+        className={`text-center ${jobLength === jobs.length ? "hidden" : ""}`}
+      >
         <button
-          onClick={() => setJobLength(jobLength + 2)}
+          onClick={() => setJobLength(jobs.length)}
           className='bg-gradient-to-r from-cyan-400 to-blue-600 text-white px-6 py-2 rounded-lg'
         >
           See all Jobs

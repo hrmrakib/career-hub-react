@@ -8,13 +8,10 @@ const Header = () => {
         <NavLink to='/'>Home</NavLink>
       </li>
       <li>
+        <NavLink to='/applied'>Applied Jobs</NavLink>
+      </li>
+      <li>
         <NavLink to='/statistics'>Statistics</NavLink>
-      </li>
-      <li>
-        <NavLink to='/applies'>Applied Jobs</NavLink>
-      </li>
-      <li>
-        <NavLink to='/blog'>Blog</NavLink>
       </li>
     </>
   );
@@ -52,7 +49,12 @@ const Header = () => {
         <ul className='menu menu-horizontal px-1'>{links}</ul>
       </div>
       <div className='navbar-end'>
-        <Button text='Start Applying' />
+        <Link
+          className='bg-gradient-to-r from-cyan-400 to-blue-600 text-white px-6 py-2 rounded-lg'
+          to='#apply'
+        >
+          Start Applying
+        </Link>
       </div>
     </div>
   );

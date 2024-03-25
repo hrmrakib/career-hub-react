@@ -3,7 +3,9 @@ import categories from "../data/categories.json";
 const CategoryList = () => {
   return (
     <div>
-      <h2 className='text-4xl font-bold text-center mb-5'>Featured Jobs</h2>
+      <h2 className='text-4xl font-bold text-center mb-5'>
+        Job Catagories Lists
+      </h2>
       <p className='text-gray-500 text-center'>
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique in
         facilis asperiores.
