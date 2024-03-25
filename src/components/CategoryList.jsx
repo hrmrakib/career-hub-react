@@ -1,6 +1,14 @@
-import categories from "../data/categories.json";
+import { useEffect, useState } from "react";
 
 const CategoryList = () => {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    fetch("./categories.json")
+      .then((res) => res.json())
+      .then((data) => setCategories(data));
+  }, []);
+
   return (
     <div>
       <h2 className='text-4xl font-bold text-center mb-5'>
