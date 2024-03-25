@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import location from "../assets/icons/Location.png";
-import money from "../assets/icons/money.png";
+import location from "/assets/icons/Location.png";
+import money from "/assets/icons/money.png";
 import { useEffect, useState } from "react";
 
 const FeaturedJob = () => {

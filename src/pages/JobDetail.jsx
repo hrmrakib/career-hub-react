@@ -1,8 +1,8 @@
-import money from "../assets/icons/money.png";
-import jobTitle from "../assets/icons/calendar.png";
-import phonePng from "../assets/icons/phone.png";
-import emailPng from "../assets/icons/email.png";
-import locationPng from "../assets/icons/location2.png";
+import money from "/assets/icons/money.png";
+import jobTitle from "/assets/icons/calendar.png";
+import phonePng from "/assets/icons/phone.png";
+import emailPng from "/assets/icons/email.png";
+import locationPng from "/assets/icons/location2.png";
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

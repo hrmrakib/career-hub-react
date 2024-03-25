@@ -1,5 +1,6 @@
 import Button from "../components/Button";
-import user from "../assets/images/user.png";
+import user from "/assets/images/user.png";
+
 const Hero = () => {
   return (
     <section className='flex items-center justify-between py-20 mb-10'>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import location from "../assets/icons/Location.png";
-import money from "../assets/icons/money.png";
+import location from "/assets/icons/Location.png";
+import money from "/assets/icons/money.png";
 import { useLoaderData } from "react-router-dom";
 import { getJobApplication } from "../utils/localStorage";
 
